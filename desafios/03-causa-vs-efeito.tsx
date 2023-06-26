@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 
 interface User {
   name: string;
-  github: string;
+  githubProfile: string;
 }
 
 function fetchUser() {
@@ -11,38 +11,38 @@ function fetchUser() {
     data: {
       user: {
         name: 'Joseph Oliveira',
-        github: 'https://github.com/josepholiveira'
+        githubProfile: 'https://github.com/josepholiveira'
       }
     }
   }
 }
 
 export function UserProfile() {
-  const [shouldNotRenderUserName, setShouldNotRenderUserName] = useState(false)
+  const [renderingUsername, setRenderingUsername] = useState(false)
   const [userData, setUserData] = useState<User>()
 
   useEffect(() => {
     function loadUser() {
-      setShouldNotRenderUserName(true)
+      setRenderingUsername(true)
 
       const fetchUserResponse = fetchUser()
 
       setUserData(fetchUserResponse.data.user)
       
-      setShouldNotRenderUserName(false)
+      setRenderingUsername(false)
     }
 
     loadUser()
   })
 
-  if (shouldNotRenderUserName) {
+  if (renderingUsername) {
     return <p>Loading...</p>
   }
 
   return (
     <div>
-      <img src={`${userData?.github}.png`} alt="" />
-      <a href={userData?.github}>{userData?.name}</a>
+      <img src={`${userData?.githubProfile}.png`} alt="" />
+      <a href={userData?.githubProfile}>{userData?.name}</a>
     </div>
   )
 }
