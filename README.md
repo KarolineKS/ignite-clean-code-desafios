@@ -8,6 +8,10 @@
 </p>
 
 
+## 🎯 Objetivo
+
+Esse repositório é do curso de Clean Code da RocketSeat e tem por objetivo aprimorar meus conhecimentos nos princípios de Clean Code através de desafios
+
 ## 💻 Projeto
 
 ignite-clean-code-desafios
